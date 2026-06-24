@@ -1,0 +1,262 @@
+{
+  "template_name": "Medical Device License",
+  "template_version": "1.0",
+  "description": "IMDRF template for Health Canada Medical Device License applications",
+  "regulation_type": "non_IVD",
+  "created_date": "2024-01-01",
+  "sections": [
+    {
+      "section_code": "1",
+      "section_title": "Administrative Information",
+      "section_description": "General administrative and applicant information",
+      "is_required": true,
+      "order_index": 1,
+      "content_requirements": [
+        "Applicant information",
+        "Device identification",
+        "Regulatory history"
+      ],
+      "children": [
+        {
+          "section_code": "1.1",
+          "section_title": "Applicant Information",
+          "section_description": "Details about the applicant organization",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Company name and address",
+            "Contact person details",
+            "Business registration information"
+          ]
+        },
+        {
+          "section_code": "1.2",
+          "section_title": "Device Identification",
+          "section_description": "Unique identification of the medical device",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Device name and model numbers",
+            "UDI information if applicable",
+            "Device classification"
+          ]
+        },
+        {
+          "section_code": "1.3",
+          "section_title": "Regulatory History",
+          "section_description": "Previous regulatory submissions and approvals",
+          "is_required": false,
+          "order_index": 3,
+          "content_requirements": [
+            "Previous submissions to Health Canada",
+            "International approvals (FDA, CE, etc.)",
+            "Regulatory correspondence"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "2",
+      "section_title": "Device Description",
+      "section_description": "Comprehensive description of the medical device",
+      "is_required": true,
+      "order_index": 2,
+      "content_requirements": [
+        "Device overview",
+        "Intended use and indications",
+        "Technical specifications"
+      ],
+      "children": [
+        {
+          "section_code": "2.1",
+          "section_title": "Device Overview",
+          "section_description": "General description and components of the device",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Physical description",
+            "Key components and materials",
+            "Operating principles"
+          ]
+        },
+        {
+          "section_code": "2.2",
+          "section_title": "Intended Use and Indications",
+          "section_description": "Clinical intended use and target patient population",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Intended use statement",
+            "Target patient population",
+            "Clinical indications",
+            "Contraindications"
+          ]
+        },
+        {
+          "section_code": "2.3",
+          "section_title": "Technical Specifications",
+          "section_description": "Detailed technical and performance specifications",
+          "is_required": true,
+          "order_index": 3,
+          "content_requirements": [
+            "Performance specifications",
+            "Technical drawings",
+            "Software information if applicable"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "3",
+      "section_title": "Quality Management",
+      "section_description": "Quality management system information",
+      "is_required": true,
+      "order_index": 3,
+      "content_requirements": [
+        "QMS certification",
+        "Manufacturing information",
+        "Quality controls"
+      ],
+      "children": [
+        {
+          "section_code": "3.1",
+          "section_title": "Quality Management System",
+          "section_description": "QMS certification and compliance information",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "ISO 13485 certificate",
+            "QMS scope and exclusions",
+            "Notified body information"
+          ]
+        },
+        {
+          "section_code": "3.2",
+          "section_title": "Manufacturing Information",
+          "section_description": "Manufacturing sites and processes",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Manufacturing site details",
+            "Manufacturing process description",
+            "Sterilization information if applicable"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "4",
+      "section_title": "Risk Management",
+      "section_description": "Risk analysis and management documentation",
+      "is_required": true,
+      "order_index": 4,
+      "content_requirements": [
+        "Risk management plan",
+        "Risk analysis",
+        "Risk control measures"
+      ],
+      "children": [
+        {
+          "section_code": "4.1",
+          "section_title": "Risk Management Plan",
+          "section_description": "Overall risk management approach and plan",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Risk management process",
+            "Risk acceptability criteria",
+            "Risk management team"
+          ]
+        },
+        {
+          "section_code": "4.2",
+          "section_title": "Risk Analysis",
+          "section_description": "Detailed risk analysis and hazard identification",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Hazard identification",
+            "Risk estimation",
+            "Risk evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "5",
+      "section_title": "Clinical Evidence",
+      "section_description": "Clinical evaluation and evidence documentation",
+      "is_required": true,
+      "order_index": 5,
+      "content_requirements": [
+        "Clinical evaluation plan",
+        "Clinical data",
+        "Post-market surveillance"
+      ],
+      "children": [
+        {
+          "section_code": "5.1",
+          "section_title": "Clinical Evaluation",
+          "section_description": "Clinical evaluation methodology and results",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Clinical evaluation plan",
+            "Literature review",
+            "Clinical data analysis"
+          ]
+        },
+        {
+          "section_code": "5.2",
+          "section_title": "Clinical Data",
+          "section_description": "Clinical study data and reports",
+          "is_required": false,
+          "order_index": 2,
+          "content_requirements": [
+            "Clinical study protocols",
+            "Clinical study reports",
+            "Adverse event data"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "6",
+      "section_title": "Labelling",
+      "section_description": "Device labelling and instructions for use",
+      "is_required": true,
+      "order_index": 6,
+      "content_requirements": [
+        "Device labels",
+        "Instructions for use",
+        "Packaging information"
+      ],
+      "children": [
+        {
+          "section_code": "6.1",
+          "section_title": "Device Labels",
+          "section_description": "All labels appearing on the device and packaging",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Device label text",
+            "Symbols and their meanings",
+            "Multilingual requirements"
+          ]
+        },
+        {
+          "section_code": "6.2",
+          "section_title": "Instructions for Use",
+          "section_description": "Complete instructions for use document",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "User instructions",
+            "Safety warnings",
+            "Maintenance requirements"
+          ]
+        }
+      ]
+    }
+  ]
+}

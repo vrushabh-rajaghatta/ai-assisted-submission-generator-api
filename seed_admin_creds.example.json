@@ -1,0 +1,10 @@
+{
+  "_comment": "Copy this file to seed_admin_creds.json (gitignored). On every startup the API will create the super admins listed below in an auto-created '__platform__' organization. The 'username' can be any string (e.g. 'sadmin' or 'admin@company.com'); it is what the user types at the login screen. Passwords must be >= 8 chars. Add \"force_reset_password\": true to overwrite a user's password on the next startup. Create real organizations and their admins via the Admin page in the UI (or POST /api/auth/super-admin/organizations).",
+  "super_admins": [
+    {
+      "username": "sadmin",
+      "password": "change-me-super",
+      "full_name": "Platform Super Admin"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# FastAPI and ASGI server
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+
+# Database
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+alembic==1.14.0
+
+# Pydantic for data validation (Python 3.13 compatible versions)
+pydantic==2.10.4
+pydantic-settings==2.7.0
+
+# File handling
+python-multipart==0.0.6
+aiofiles==23.2.1
+python-magic==0.4.27
+boto3==1.43.31
+
+# Document processing (AI services)
+PyPDF2==3.0.1
+python-docx==0.8.11
+nltk==3.8.1
+
+# AI Services
+sarvamai
+
+# Utilities
+python-dotenv==1.0.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+httpx==0.25.2
+
+# Development
+pytest==8.3.4
+pytest-asyncio==0.24.0
+black==24.10.0
+isort==5.13.2
+mypy==1.14.0

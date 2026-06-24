@@ -1,0 +1,255 @@
+{
+  "template_name": "IVD Medical Device License",
+  "template_version": "1.0",
+  "description": "IMDRF template for Health Canada In Vitro Diagnostic (IVD) Medical Device License applications",
+  "regulation_type": "IVD",
+  "created_date": "2024-01-01",
+  "sections": [
+    {
+      "section_code": "1",
+      "section_title": "Administrative Information",
+      "section_description": "General administrative and applicant information for IVD devices",
+      "is_required": true,
+      "order_index": 1,
+      "content_requirements": [
+        "Applicant information",
+        "IVD device identification",
+        "Regulatory history"
+      ],
+      "children": [
+        {
+          "section_code": "1.1",
+          "section_title": "Applicant Information",
+          "section_description": "Details about the applicant organization",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Company name and address",
+            "Contact person details",
+            "Business registration information"
+          ]
+        },
+        {
+          "section_code": "1.2",
+          "section_title": "IVD Device Identification",
+          "section_description": "Unique identification of the IVD medical device",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "IVD device name and catalog numbers",
+            "Test system components",
+            "IVD classification"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "2",
+      "section_title": "IVD Device Description",
+      "section_description": "Comprehensive description of the IVD medical device",
+      "is_required": true,
+      "order_index": 2,
+      "content_requirements": [
+        "IVD device overview",
+        "Intended use for diagnostic purposes",
+        "Analytical specifications"
+      ],
+      "children": [
+        {
+          "section_code": "2.1",
+          "section_title": "IVD Device Overview",
+          "section_description": "General description of the IVD device and test system",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Test principle and methodology",
+            "Reagents and components",
+            "Instrumentation requirements"
+          ]
+        },
+        {
+          "section_code": "2.2",
+          "section_title": "Intended Use - Diagnostic",
+          "section_description": "Diagnostic intended use and target analytes",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Diagnostic intended use statement",
+            "Target analytes or parameters",
+            "Sample types",
+            "Target user population"
+          ]
+        },
+        {
+          "section_code": "2.3",
+          "section_title": "Analytical Performance",
+          "section_description": "Analytical performance characteristics",
+          "is_required": true,
+          "order_index": 3,
+          "content_requirements": [
+            "Analytical sensitivity",
+            "Analytical specificity",
+            "Precision and accuracy",
+            "Measuring range"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "3",
+      "section_title": "Quality Management - IVD",
+      "section_description": "Quality management system specific to IVD manufacturing",
+      "is_required": true,
+      "order_index": 3,
+      "content_requirements": [
+        "IVD QMS certification",
+        "Manufacturing and quality controls",
+        "Lot release procedures"
+      ],
+      "children": [
+        {
+          "section_code": "3.1",
+          "section_title": "IVD Quality Management System",
+          "section_description": "QMS certification specific to IVD devices",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "ISO 13485 certificate for IVD",
+            "IVD-specific QMS procedures",
+            "Design controls for IVD"
+          ]
+        },
+        {
+          "section_code": "3.2",
+          "section_title": "IVD Manufacturing Controls",
+          "section_description": "Manufacturing and quality control specific to IVD",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Raw material controls",
+            "In-process testing",
+            "Lot release criteria",
+            "Stability testing"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "4",
+      "section_title": "Analytical Validation",
+      "section_description": "Analytical validation studies and data",
+      "is_required": true,
+      "order_index": 4,
+      "content_requirements": [
+        "Analytical validation plan",
+        "Performance studies",
+        "Reference materials"
+      ],
+      "children": [
+        {
+          "section_code": "4.1",
+          "section_title": "Analytical Validation Studies",
+          "section_description": "Comprehensive analytical validation data",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Precision studies",
+            "Accuracy studies",
+            "Linearity studies",
+            "Limit of detection/quantitation"
+          ]
+        },
+        {
+          "section_code": "4.2",
+          "section_title": "Reference Standards",
+          "section_description": "Reference materials and calibrators used",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Calibrator information",
+            "Control materials",
+            "Traceability to higher-order references"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "5",
+      "section_title": "Clinical Performance",
+      "section_description": "Clinical validation and performance data",
+      "is_required": true,
+      "order_index": 5,
+      "content_requirements": [
+        "Clinical validation plan",
+        "Clinical performance studies",
+        "Clinical utility assessment"
+      ],
+      "children": [
+        {
+          "section_code": "5.1",
+          "section_title": "Clinical Validation",
+          "section_description": "Clinical validation studies and results",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Clinical sensitivity",
+            "Clinical specificity",
+            "Positive/negative predictive values",
+            "Clinical comparison studies"
+          ]
+        },
+        {
+          "section_code": "5.2",
+          "section_title": "Clinical Utility",
+          "section_description": "Evidence of clinical utility and impact",
+          "is_required": false,
+          "order_index": 2,
+          "content_requirements": [
+            "Clinical decision-making impact",
+            "Patient outcome studies",
+            "Healthcare economic data"
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "6",
+      "section_title": "IVD Labelling and Instructions",
+      "section_description": "IVD-specific labelling and instructions for use",
+      "is_required": true,
+      "order_index": 6,
+      "content_requirements": [
+        "IVD device labels",
+        "Instructions for use",
+        "Performance characteristics"
+      ],
+      "children": [
+        {
+          "section_code": "6.1",
+          "section_title": "IVD Device Labels",
+          "section_description": "All labels for IVD device and components",
+          "is_required": true,
+          "order_index": 1,
+          "content_requirements": [
+            "Primary container labels",
+            "Kit box labels",
+            "IVD-specific symbols and warnings"
+          ]
+        },
+        {
+          "section_code": "6.2",
+          "section_title": "IVD Instructions for Use",
+          "section_description": "Complete IVD instructions for use document",
+          "is_required": true,
+          "order_index": 2,
+          "content_requirements": [
+            "Test procedure instructions",
+            "Quality control procedures",
+            "Result interpretation",
+            "Limitations and interferences"
+          ]
+        }
+      ]
+    }
+  ]
+}
