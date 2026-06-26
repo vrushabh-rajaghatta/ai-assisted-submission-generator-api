@@ -29,7 +29,8 @@ class UploadedFile(BaseModel, AuditMixin):
     __tablename__ = "uploaded_files"
     
     project_id = Column(UUID(as_uuid=True), ForeignKey("projects.id"), nullable=False, index=True)
-    submission_id = Column(UUID(as_uuid=True), ForeignKey("submissions.id"), nullable=True, index=True)  # Optional - files can be project-level
+    product_id = Column(UUID(as_uuid=True), ForeignKey("products.id"), nullable=True, index=True)
+    submission_id = Column(UUID(as_uuid=True), ForeignKey("submissions.id"), nullable=True, index=True)  # Optional - files can be submission-level
     original_filename = Column(String(500), nullable=False)
     stored_filename = Column(String(500), nullable=False, unique=True)  # UUID-based filename
     file_path = Column(String(1000), nullable=False)  # Full path to stored file
@@ -43,6 +44,7 @@ class UploadedFile(BaseModel, AuditMixin):
     
     # Relationships
     project = relationship("Project", back_populates="files")
+    product = relationship("Product", back_populates="files")
     submission = relationship("Submission", backref="files")  # Optional relationship
     extracted_contents = relationship("ExtractedContent", back_populates="file", cascade="all, delete-orphan")
     

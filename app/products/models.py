@@ -46,6 +46,7 @@ class Product(BaseModel):
     # Relationships
     project = relationship("Project", back_populates="products")
     submissions = relationship("Submission", back_populates="product", cascade="all, delete-orphan")
+    files = relationship("UploadedFile", back_populates="product")
     
     def __repr__(self) -> str:
         return f"<Product(id={self.id}, name='{self.name}', type='{self.device_type}')>"

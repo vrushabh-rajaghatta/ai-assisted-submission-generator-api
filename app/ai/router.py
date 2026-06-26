@@ -180,13 +180,31 @@ async def auto_populate_submission(
 
     _assert_submission_in_org(submission_id, db, current_user)
 
+    submission = _assert_submission_in_org(submission_id, db, current_user)
+
+    # Primary source: files explicitly linked to this submission.
     files = db.query(UploadedFile).filter(
         UploadedFile.submission_id == submission_id
     ).all()
+    file_source = "submission"
+
+    # Fallback: if no submission-linked files, try unlinked files for the same
+    # product. These are files uploaded at product level without a submission.
+    if not files:
+        files = db.query(UploadedFile).filter(
+            UploadedFile.product_id == submission.product_id,
+            UploadedFile.submission_id.is_(None),
+        ).all()
+        file_source = "product_unlinked"
 
     if not files:
         return {
-            "message": "No files found for this submission",
+            "message": (
+                "No documents found for this submission. "
+                "No unlinked product documents were found either. "
+                "Please upload files first."
+            ),
+            "file_source": "none",
             "files_processed": 0,
             "sections_updated": 0,
             "updated_section_ids": [],
@@ -224,7 +242,13 @@ async def auto_populate_submission(
         "message": (
             f"Auto-population completed: {len(updated_section_ids)} sections updated "
             f"from {files_processed}/{len(files)} files"
+            + (
+                " (using unlinked product files fallback)"
+                if file_source == "product_unlinked"
+                else ""
+            )
         ),
+        "file_source": file_source,
         "files_processed": files_processed,
         "total_files": len(files),
         "sections_updated": len(updated_section_ids),

@@ -347,10 +347,16 @@ class DossierContentService:
         # Update the actual content in the database
         section.content = content
         
-        # Update completion status based on content presence
+        # Update completion status based on content presence.
+        # Use AI confidence score if available (more meaningful than text length).
+        # Cap at 90 — 100% is reserved for an explicit "Mark Complete" action.
         if content and content.strip():
             section.is_completed = False  # In progress
-            section.completion_percentage = self._calculate_completion_percentage(content)
+            if section.ai_confidence_score:
+                section.completion_percentage = min(int(section.ai_confidence_score * 100), 90)
+            else:
+                # No AI score yet — content has been manually drafted
+                section.completion_percentage = 50
         else:
             section.is_completed = False
             section.completion_percentage = 0
@@ -361,23 +367,10 @@ class DossierContentService:
         return section
     
     def _calculate_completion_percentage(self, content: str) -> int:
-        """Calculate completion percentage based on content length and quality."""
+        """Retained for backward compatibility — use AI confidence score where possible."""
         if not content or not content.strip():
             return 0
-        
-        # Simple heuristic based on content length
-        content_length = len(content.strip())
-        
-        if content_length < 50:
-            return 20  # Minimal content
-        elif content_length < 200:
-            return 40  # Some content
-        elif content_length < 500:
-            return 60  # Good amount of content
-        elif content_length < 1000:
-            return 80  # Substantial content
-        else:
-            return 90  # Comprehensive content (not 100% - user should mark complete)
+        return 50  # Draft in progress; confidence score applied when AI has processed
     
     def mark_section_complete(self, section_id: uuid.UUID, completed_by: Optional[str] = None) -> DossierSection:
         """Mark a section as complete."""

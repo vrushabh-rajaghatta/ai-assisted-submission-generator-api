@@ -3,7 +3,6 @@ Main AI service for processing documents and managing AI-assisted content extrac
 """
 
 import time
-from pathlib import Path
 from typing import List, Dict, Any, Optional
 from uuid import UUID
 from sqlalchemy.orm import Session
@@ -22,6 +21,7 @@ from app.ai.sarvam_service import sarvam_ai_service
 from app.ai.logging_utils import AILogger
 from app.dossier.models import DossierSection
 from app.files.models import UploadedFile
+from app.files.services import FileStorageService
 
 
 class AIProcessingService:
@@ -76,12 +76,16 @@ class AIProcessingService:
             if not dossier_sections:
                 raise ValueError(f"No leaf dossier sections found for submission: {submission_id}")
             
-            # Parse document
-            file_path = file_record.file_path
-            if not Path(file_path).exists():
-                raise ValueError(f"File not found on disk: {file_path}")
-            
-            document_content = document_parser.parse_document(file_path, file_record.mime_type)
+            # Parse document using storage abstraction (works for local and S3).
+            storage_service = FileStorageService()
+            if not storage_service.file_exists(file_record):
+                raise ValueError(f"File not found in storage: {file_record.file_path}")
+
+            with storage_service.local_file(file_record) as local_path:
+                document_content = document_parser.parse_document(
+                    str(local_path),
+                    file_record.mime_type,
+                )
             
             # Map content to sections using AI or fallback to keyword matching
             section_mappings = []
@@ -274,7 +278,9 @@ class AIProcessingService:
                     
                     # Don't auto-populate content - let user decide whether to use AI content
                     # This keeps ai_extracted_content separate from user content
-                    section.completion_percentage = min(int(mapping.confidence_score * 100), 40)  # Lower % since it's just AI suggestion
+                    # Use confidence score directly (capped at 90; 100 reserved for
+                    # an explicit "Mark Complete" action by a human).
+                    section.completion_percentage = min(int(mapping.confidence_score * 100), 90)
                 
                 updated_sections.append(section.id)
         
